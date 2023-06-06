@@ -1,7 +1,9 @@
 <template>
   <button @click='playGame'>Go</button>
-  <div v-for="cell in cells" :key="cell.id">
-    <img :src="cell.src" :alt="cell.alt">
+  <div class="grid">
+    <div v-for="cell in cells" :key="cell.id">
+        <img :src="require(`../../assets/images/${cell.src}`)" :alt="cell.alt">
+    </div>
   </div>
   <p>results {{ hello }}</p>
 </template>
@@ -38,5 +40,19 @@ export default {
 </script>
 
 <style>
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
 
 </style>
