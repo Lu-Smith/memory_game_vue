@@ -1,4 +1,5 @@
 <template>
+  <GameTimer />
   <h1>Hello World</h1>
   <MainFooter />
 </template>
@@ -6,11 +7,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import MainFooter from './components/Footer/MainFooter.vue';
+import GameTimer from './components/Header/GameTimer.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    MainFooter
+    MainFooter,
+    GameTimer
 }
 });
 </script>
