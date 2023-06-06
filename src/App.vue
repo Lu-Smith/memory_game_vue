@@ -1,14 +1,17 @@
 <template>
   <h1>Hello World</h1>
+  <MainFooter />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import MainFooter from './components/Footer/MainFooter.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-  }
+    MainFooter
+}
 });
 </script>
 
