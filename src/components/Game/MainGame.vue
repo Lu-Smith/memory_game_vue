@@ -20,7 +20,7 @@ export default {
     }
   },
   methods: {
-    togglePlayer(playerNumber:number) {
+    togglePlayer(playerNumber:number): void  {
       this.active1 = playerNumber === 1 ? !this.active1 : false;
       this.active2 = playerNumber === 2 ? !this.active2 : false;
     }
