@@ -4,11 +4,15 @@
     <h3 :class="{ active: active1 }" @click="togglePlayer(1)">player 1</h3>
     <h3 :class="{ active: active2 }" @click="togglePlayer(2)">player 2</h3>
   </div>
- 
+  <GameGrid />
 </template>
 
 <script lang="ts">
+import GameGrid from './GameGrid.vue'
 export default {
+  components: {
+    GameGrid
+  },
   data() {
     return {
       active1: false,
@@ -21,8 +25,6 @@ export default {
       this.active2 = playerNumber === 2 ? !this.active2 : false;
     }
   }
-
-
 }
 </script>
 
