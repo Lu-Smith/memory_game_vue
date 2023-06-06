@@ -28,7 +28,7 @@ ul {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     padding-top: 10px;
 }
 
@@ -39,6 +39,7 @@ li {
     font-weight: 800;
     transform: translateX(0);
     width: 100px;
+    cursor: pointer;
 }
 
 li:hover {

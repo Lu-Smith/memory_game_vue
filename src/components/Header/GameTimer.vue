@@ -19,5 +19,4 @@ export default {
     right: 0;
     width: 100dvw;
 }
-
 </style>
