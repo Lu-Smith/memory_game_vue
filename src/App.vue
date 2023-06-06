@@ -1,7 +1,7 @@
 <template>
   <GameTimer />
   <MainHeader />
-  <h1>Hello World</h1>
+  <h1>Memory Game</h1>
   <MainFooter />
 </template>
 
