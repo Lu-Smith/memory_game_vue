@@ -8,3 +8,5 @@ const cards1 = [
     {"id": 7, "src": '../../assets/images/MemoCard7.svg', "alt": 'Memo Card 7'},
     {"id": 8, "src": '../../assets/images/MemoCard8.svg', "alt": 'Memo Card 8'}
 ]
+
+export default cards1;

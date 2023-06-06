@@ -8,19 +8,27 @@
 </template>
 
 <script lang="ts">
+
 import GameGrid from './GameGrid.vue'
+
+interface MainGameComponent {
+  active1: boolean;
+  active2: boolean;
+  togglePlayer(playerNumber: number): void;
+}
+
 export default {
   components: {
     GameGrid
   },
-  data() {
+  data()  {
     return {
       active1: false,
       active2: false
     }
   },
   methods: {
-    togglePlayer(playerNumber:number): void  {
+    togglePlayer(this: MainGameComponent, playerNumber:number): void  {
       this.active1 = playerNumber === 1 ? !this.active1 : false;
       this.active2 = playerNumber === 2 ? !this.active2 : false;
     }
@@ -51,5 +59,4 @@ export default {
   color: red;
   border: 4px solid red;
 }
-
 </style>
