@@ -1,7 +1,7 @@
 <template>
   <GameTimer />
   <MainHeader />
-  <h1>Memory Game</h1>
+  <MainTitle />
   <MainFooter />
 </template>
 
@@ -10,13 +10,15 @@ import { defineComponent } from 'vue';
 import MainFooter from './components/Footer/MainFooter.vue';
 import GameTimer from './components/Header/GameTimer.vue';
 import MainHeader from './components/Header/MainHeader.vue';
+import MainTitle from './components/Header/MainTitle.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     MainFooter,
     GameTimer,
-    MainHeader
+    MainHeader,
+    MainTitle
 }
 });
 </script>
