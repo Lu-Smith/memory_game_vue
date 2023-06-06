@@ -38,12 +38,15 @@ li {
     transition: all 200ms ease;
     font-weight: 800;
     transform: translateX(0);
+    width: 100px;
 }
 
 li:hover {
-  background: #9fd3c7;
+  background: #57746d;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
   transform: translateY(10px);
+  color: white;
+  font-weight: 600;
 }
 
 .menu-enter-active,
@@ -59,11 +62,6 @@ li:hover {
 
 .contactLink {
     background: #9fd3c7;
-}
-
-.contactLink:hover {
-    background: #57746d;
-    color: white;
 }
 
 </style>
