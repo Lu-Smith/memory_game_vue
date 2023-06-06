@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <transition-group name="menu" tag="ul">
     <li>
         Level 1
     </li>
@@ -12,11 +12,12 @@
     <li class="contactLink">
         Contact
     </li>
-  </ul>
+  </transition-group>
 </template>
 
 <script lang="ts">
 export default {
+    
 
 }
 </script>
@@ -36,11 +37,24 @@ li {
     border-radius: 5px;
     transition: all 200ms ease;
     font-weight: 800;
+    transform: translateX(0);
 }
 
 li:hover {
-    background: #9fd3c7;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  background: #9fd3c7;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  transform: translateY(10px);
+}
+
+.menu-enter-active,
+.menu-leave-active {
+  transition: all 200ms ease;
+}
+
+.menu-enter,
+.menu-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
 }
 
 .contactLink {
