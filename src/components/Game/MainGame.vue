@@ -3,7 +3,7 @@
     <div v-if="play" class="score">{{ score }}</div>
     <div class="player" > 
       <div class="player-name" v-if="!createName">
-        Hello {{ player }}
+        {{ player }}
       </div>
       <div v-if="createName" class="player-name-submit">
         <input type="text" v-model="player" placeholder="player name..."/>
@@ -39,7 +39,8 @@ export default {
       score: 0,
       player: '',
       timerMinutes: 0,
-      timerSeconds: 0
+      timerSeconds: 0,
+      timerInterval: null
     }
   },
   methods: {
@@ -51,10 +52,11 @@ export default {
             this.cells = cards1.map((card: Cell) => ({ ...card, clicked: false }))
             this.timerMinutes = 0;
             this.timerSeconds = 0;
+            clearInterval(this.timerInterval);
             this.startTimer();
     },
     startTimer(this: PlayGame) {
-      const timerInterval = setInterval(() => {
+      this.timerInterval = setInterval(() => {
         this.timerSeconds++;
         if (this.timerSeconds === 60) {
           this.timerMinutes++;

@@ -7,7 +7,8 @@ interface PlayGame {
     imgAlt: string,
     timerMinutes: 0,
     timerSeconds: 0,
-    startTimer(): void
+    startTimer(): void,
+    timerInterval: number;
 }
 
 export default PlayGame
