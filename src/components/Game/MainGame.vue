@@ -1,10 +1,12 @@
 <template>
   <div class="players">
+    <span v-if="play" class="score">{{ scorePlayer1 }}</span>
     <h3 v-if="play" :class="{ active: active1 }" @click="togglePlayer(1)">player 1</h3>
     <h2>Level 1</h2>
-    <h3 v-if="play" :class="{ active: active2 }" @click="togglePlayer(2)">player 2</h3>
+    <h3  v-if="play" :class="{ active: active2 }" @click="togglePlayer(2)">player 2</h3>
+    <span v-if="play" class="score">{{ scorePlayer2 }}</span>
   </div>
-  <p v-if="play" class="instruction">{{ choosePlayer }}</p>
+  <p v-if="play && ((!active1) && (!active2))" class="instruction">{{ choosePlayer }}</p>
   <button @click='playGame'>Play</button>
   <GameGrid :cells="cells" @uncoverCard="uncoverCard"/>
 </template>
@@ -28,7 +30,9 @@ export default {
       active2: false,
       cells: cards1.map((card: Cell) => ({ ...card, clicked: false })),
       play: false,
-      choosePlayer: 'Choose the player'
+      choosePlayer: 'Choose the player',
+      scorePlayer1: 0,
+      scorePlayer2: 0
     }
   },
   methods: {
@@ -83,5 +87,12 @@ export default {
 
 .active {
   animation: activeEffect 1s ease-in-out infinite alternate;
+}
+
+.score {
+  font-size: 30px;
+  font-weight: bold;
+  border: 4px solid #9fd3c7;
+  padding: 20px;
 }
 </style>
