@@ -1,10 +1,25 @@
 <template>
   <div class="players">
-    <span v-if="play" class="score">{{ scorePlayer1 }}</span>
-    <h3 v-if="play" :class="{ active: active1 }" @click="togglePlayer(1)">player 1</h3>
-    <h2>Level 1</h2>
-    <h3  v-if="play" :class="{ active: active2 }" @click="togglePlayer(2)">player 2</h3>
-    <span v-if="play" class="score">{{ scorePlayer2 }}</span>
+    <div v-if="play" class="score">{{ scorePlayer1 }}</div>
+    <div class="player" v-if="play" > 
+      <div class="player1 name" :class="{ active: active1 }">
+        {{ player1 }}
+      </div>
+      <div v-if="createName1" class="player-name-submit">
+        <input type="text" v-model="player1" placeholder="player name..."/>
+        <button class="name-button"  @click="togglePlayer(1)">Confirm</button>
+      </div>
+    </div>
+    <div class="player" v-if="play">
+      <div class="player2 name" :class="{ active: active2 }" >
+        {{ player2 }}
+      </div>
+      <div v-if="createName2" class="player-name-submit">
+        <input type="text" v-model="player2" placeholder="player name..."/>
+        <button  class="name-button"  @click="togglePlayer(2)">Confirm</button>
+      </div>
+    </div>
+    <div v-if="play" class="score">{{ scorePlayer2 }}</div>
   </div>
   <p v-if="play && ((!active1) && (!active2))" class="instruction">{{ choosePlayer }}</p>
   <button @click='playGame'>Play</button>
@@ -28,17 +43,29 @@ export default {
     return {
       active1: false,
       active2: false,
+      createName1: true,
+      createName2: true,
       cells: cards1.map((card: Cell) => ({ ...card, clicked: false })),
       play: false,
-      choosePlayer: 'Choose the player',
-      scorePlayer1: '00',
-      scorePlayer2: '00'
+      choosePlayer: 'Enter a player name',
+      scorePlayer1: 0,
+      scorePlayer2: 0,
+      player1: '',
+      player2: ''
     }
   },
   methods: {
     togglePlayer(this: MainGameComponent, playerNumber:number): void  {
-      this.active1 = playerNumber === 1 ? !this.active1 : false;
-      this.active2 = playerNumber === 2 ? !this.active2 : false;
+      if(playerNumber === 1) {
+        this.active1 = true;
+        this.active2 = false;
+        this.createName1 = false;
+      }
+      if(playerNumber === 2) {
+        this.active2 = true;
+        this.active1 = false;
+        this.createName2 = false;
+      }
     },
     playGame(this: PlayGame){
             this.play = true
@@ -59,6 +86,17 @@ export default {
 </script>
 
 <style>
+.player-name-submit {
+  background: #57746d;
+  padding: 10px;
+}
+
+.name-button {
+  font-size: 16px;
+  border: none;
+  border-radius: none;
+} 
+
 .players {
   display: flex;
   gap: 30px;
@@ -94,5 +132,20 @@ export default {
   font-weight: bold;
   border: 4px solid #9fd3c7;
   padding: 20px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.player1 {
+  color: red;
+}
+
+.player2 {
+  color: #57746d;
 }
 </style>

@@ -27,5 +27,6 @@ export default defineComponent({
     top: 0;
     right: 0;
     width: 100dvw;
+    padding: 20px 0;
 }
 </style>

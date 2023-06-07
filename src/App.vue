@@ -2,7 +2,7 @@
   <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds"/>
   <MainHeader />
   <MainTitle />
-  <MainGame />
+  <MainGame :timerMinutes="timerMinutes" :timerSeconds="timerSeconds"/>
   <MainFooter />
 </template>
 
