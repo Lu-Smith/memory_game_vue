@@ -1,21 +1,22 @@
 <template>
   <div class="players">
-    <h3 :class="{ active: active1 }" @click="togglePlayer(1)">player 1</h3>
+    <h3 v-if="play" :class="{ active: active1 }" @click="togglePlayer(1)">player 1</h3>
     <h2>Level 1</h2>
-    <h3 :class="{ active: active2 }" @click="togglePlayer(2)">player 2</h3>
+    <h3 v-if="play" :class="{ active: active2 }" @click="togglePlayer(2)">player 2</h3>
   </div>
-  <GameGrid />
+  <p v-if="play" class="instruction">{{ choosePlayer }}</p>
+  <button @click='playGame'>Play</button>
+  <GameGrid :cells="cells" @uncoverCard="uncoverCard"/>
 </template>
 
 <script lang="ts">
-
 import GameGrid from './GameGrid.vue'
+import cards1 from '../../assets/cards.js'
 
-interface MainGameComponent {
-  active1: boolean;
-  active2: boolean;
-  togglePlayer(playerNumber: number): void;
-}
+//types
+import Cell from '../Types/Cell'
+import PlayGame from '../Types/PlayGame'
+import MainGameComponent from '../Types/MainGameComponent'
 
 export default {
   components: {
@@ -24,14 +25,31 @@ export default {
   data()  {
     return {
       active1: false,
-      active2: false
+      active2: false,
+      cells: cards1.map((card: Cell) => ({ ...card, clicked: false })),
+      play: false,
+      choosePlayer: 'Choose the player'
     }
   },
   methods: {
     togglePlayer(this: MainGameComponent, playerNumber:number): void  {
       this.active1 = playerNumber === 1 ? !this.active1 : false;
       this.active2 = playerNumber === 2 ? !this.active2 : false;
-    }
+    },
+    playGame(this: PlayGame){
+            this.play = true
+            this.cells = cards1.map((card: Cell) => ({ ...card, clicked: false }))
+    },
+    uncoverCard(this: PlayGame, cell: Cell) {
+            console.log(cell.id)
+            this.cells = this.cells.map((c: Cell) => {
+              if (c.id === cell.id) {
+                return { ...c, clicked: true };
+              } else {
+                return c;
+              }
+            })
+      }
   }
 }
 </script>
