@@ -1,8 +1,9 @@
 <template>
   <button @click='playGame'>Play</button>
   <div class="grid">
-    <div v-for="cell in cells" :key="cell.id" @click="uncoverCard(cell.id)">
-        <img :src="imgSrc" :alt="imgAlt">
+    <div v-for="cell in cells" :key="cell.id" @click="uncoverCard(cell)">
+        <img v-if="!cell.clicked" :src="imgSrc" :alt="imgAlt" />
+        <img v-else :src="require(`../../assets/images/${cell.src}`)" :alt="cell.alt" />
     </div>
   </div>
   <p>results {{ hello }}</p>
@@ -15,35 +16,42 @@ interface Cell {
   id: number;
   src: string;
   alt: string;
+  clicked: boolean
 }
 
 interface PlayGame {
   hello: string,
   cells: Cell[],
   imgSrc: string,
-  imgAlt: string
+  imgAlt: string,
 }
 
 export default {
     data() {
         return {
-            cells: [...cards1] as Cell[],
+            cells: cards1.map((card: Cell) => ({ ...card, clicked: false })),
             hello: '',
             imgSrc: require("../../assets/images/MemoCard2.1.svg"),
-            imgAlt: "top of the memo card"
+            imgAlt: "top of the memo card",
         }
     },
     methods: {
         playGame(this: PlayGame){
             this.hello = ' hello'
-            this.imgSrc = "../../assets/images/MemoCard2.1.svg",
+            this.imgSrc = require("../../assets/images/MemoCard2.1.svg"),
             this.imgAlt = "top of the memo card"
         },
-        uncoverCard(id: number) {
-            // <img :src="require(`../../assets/images/${cell.src}`)" :alt="cell.alt" class="uncoverd-card">
+        uncoverCard(this: PlayGame, cell: Cell) {
+            console.log(cell.id)
+            this.cells = this.cells.map((c: Cell) => {
+        if (c.id === cell.id) {
+          return { ...c, clicked: true };
+        } else {
+          return c;
+        }
+            })
         }
     }
-
 }
 </script>
 
