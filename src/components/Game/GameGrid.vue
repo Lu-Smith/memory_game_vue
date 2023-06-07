@@ -38,17 +38,16 @@ export default {
     methods: {
         playGame(this: PlayGame){
             this.hello = ' hello'
-            this.imgSrc = require("../../assets/images/MemoCard2.1.svg"),
-            this.imgAlt = "top of the memo card"
+            this.cells = cards1.map((card: Cell) => ({ ...card, clicked: false }))
         },
         uncoverCard(this: PlayGame, cell: Cell) {
             console.log(cell.id)
             this.cells = this.cells.map((c: Cell) => {
-        if (c.id === cell.id) {
-          return { ...c, clicked: true };
-        } else {
-          return c;
-        }
+              if (c.id === cell.id) {
+                return { ...c, clicked: true };
+              } else {
+                return c;
+              }
             })
         }
     }
