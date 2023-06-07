@@ -77,7 +77,14 @@ export default {
                 const checkClickedCards = this.cells.filter((card: Cell) => card.alt === c.alt && card.clicked);
                 if (checkClickedCards.length === 1) {
                   this.score++
-                  console.log(checkClickedCards.length)
+                }
+                const coverClickedCards = this.cells.filter((card: Cell) => card.alt !== c.alt && card.clicked);
+                if (coverClickedCards.length === 2) {
+                  coverClickedCards.forEach((card: Cell) => {
+                    setTimeout(() => {
+                      card.clicked = !card.clicked;
+                    }, 200);
+                  })
                 }
                 return { ...c, clicked: true };
               } else {
