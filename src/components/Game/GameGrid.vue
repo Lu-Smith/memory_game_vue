@@ -48,31 +48,6 @@ export default defineComponent({
     height: 430px;
 }
 
-img {
-    width: 100px;
-    height: 100px;
-}
-
-button {
-  padding: 10px 20px;
-  border-radius: 50%;
-  border: 2px solid red;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
-  background: black;
-  color: red;
-  font-size: 30px;
-  cursor: pointer;
-  transition: all 200ms ease-in-out;
-}
-
-button:hover {
-  border-radius: 40%;
-  border: 2px solid #57746d;
-  box-shadow: none;
-  background: black;
-  color: #57746d;
-}
-
 .instruction {
   color: red;
   font-style: italic;

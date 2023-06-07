@@ -1,15 +1,13 @@
 <template>
-  <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds"/>
   <MainHeader />
   <MainTitle />
-  <MainGame :timerMinutes="timerMinutes" :timerSeconds="timerSeconds"/>
+  <MainGame />
   <MainFooter />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import MainFooter from './components/Footer/MainFooter.vue';
-import GameTimer from './components/Header/GameTimer.vue';
 import MainHeader from './components/Header/MainHeader.vue';
 import MainTitle from './components/Header/MainTitle.vue';
 import MainGame from './components/Game/MainGame.vue';
@@ -18,16 +16,9 @@ export default defineComponent({
   name: 'App',
   components: {
     MainFooter,
-    GameTimer,
     MainHeader,
     MainTitle,
     MainGame
-  },
-  data() {
-    return {
-      timerMinutes: '00',
-      timerSeconds: '00',
-    }
   }
 });
 </script>

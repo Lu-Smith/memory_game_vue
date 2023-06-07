@@ -13,6 +13,7 @@
   </div>
   <button v-if="!createName" @click='playGame'>Play</button>
   <GameGrid :cells="cells" @uncoverCard="uncoverCard"/>
+  <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds"/>
 </template>
 
 <script lang="ts">
@@ -23,10 +24,11 @@ import cards1 from '../../assets/cards.js'
 import Cell from '../Types/Cell'
 import PlayGame from '../Types/PlayGame'
 import MainGameComponent from '../Types/MainGameComponent'
+import GameTimer from '..//Header/GameTimer.vue';
 
 export default {
   components: {
-    GameGrid
+    GameGrid, GameTimer
   },
   data()  {
     return {
@@ -34,7 +36,9 @@ export default {
       cells: cards1.map((card: Cell) => ({ ...card, clicked: false })),
       play: false,
       score: 0,
-      player: ''
+      player: '',
+      timerMinutes: 0,
+      timerSeconds: 0
     }
   },
   methods: {
@@ -44,6 +48,18 @@ export default {
     playGame(this: PlayGame){
             this.play = true
             this.cells = cards1.map((card: Cell) => ({ ...card, clicked: false }))
+            this.timerMinutes = 0;
+            this.timerSeconds = 0;
+            this.startTimer();
+    },
+    startTimer(this: PlayGame) {
+      const timerInterval = setInterval(() => {
+        this.timerSeconds++;
+        if (this.timerSeconds === 60) {
+          this.timerMinutes++;
+          this.timerSeconds = 0;
+        }
+      }, 1000);
     },
     uncoverCard(this: PlayGame, cell: Cell) {
             if (!this.play) {
