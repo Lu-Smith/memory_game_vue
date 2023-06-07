@@ -1,6 +1,6 @@
 <template>
     <div class="timer">
-        <h3>{{ timerMinutes }} : {{ timerSeconds }}</h3>
+        <h3>{{ timerMinutes }} min : {{ timerSeconds }} sec</h3>
     </div>
 </template>
 

@@ -11,7 +11,8 @@
       </div>
     </div>
   </div>
-  <button v-if="!createName" @click='playGame'>Play</button>
+  <button v-if="!createName && !play" @click='playGame'>Play</button>
+  <button v-if="play" @click='playGame'>Restart</button>
   <GameGrid :cells="cells" @uncoverCard="uncoverCard"/>
   <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds"/>
 </template>
