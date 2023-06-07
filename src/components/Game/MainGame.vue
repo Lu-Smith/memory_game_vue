@@ -1,7 +1,7 @@
 <template>
-  <h2>Level 1</h2>
   <div class="players">
     <h3 :class="{ active: active1 }" @click="togglePlayer(1)">player 1</h3>
+    <h2>Level 1</h2>
     <h3 :class="{ active: active2 }" @click="togglePlayer(2)">player 2</h3>
   </div>
   <GameGrid />
@@ -52,11 +52,18 @@ export default {
 
 .players h3:hover {
   color: rgb(250, 100, 100);
-  border: 4px solid rgb(250, 100, 100);
 }
 
+@keyframes activeEffect {
+    0% {
+      text-shadow: 0 0 3px #fff, 0 0 7px #f8f8f7, 0 0 15px #93e5eb, 0 0 20px #9fd3c7, 0 0 25px #4eb5d4, 0 0 30px #4eb5d4, 0 0 36px #4eb5d4, 0 0 45px #317a91;
+    }
+    100% {
+      text-shadow: 0 0 3px #ffffff, 0 0 7px #f6f7f3, 0 0 15px #93ebd1, 0 0 20px #7394f0, 0 0 25px #4d7cff, 0 0 30px #4d7cff, 0 0 36px #4d7cff, 0 0 45px #395cbb;
+    }
+  }
+
 .active {
-  color: red;
-  border: 4px solid red;
+  animation: activeEffect 1s ease-in-out infinite alternate;
 }
 </style>
