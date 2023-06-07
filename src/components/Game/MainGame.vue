@@ -57,6 +57,7 @@ export default {
             clearInterval(this.timerInterval);
             this.startTimer();
             this.gameOver = false;
+            this.score = 0;
     },
     startTimer(this: PlayGame) {
       this.timerInterval = setInterval(() => {
@@ -72,8 +73,11 @@ export default {
               return; // Game is not in play state, exit the method
             }
             this.cells = this.cells.map((c: Cell) => {
-              if (c.id === cell.id) {
+              if (c.id === cell.id && !cell.clicked) {
+
+                this.score++
                 return { ...c, clicked: true };
+               
               } else {
                 return c;
               }

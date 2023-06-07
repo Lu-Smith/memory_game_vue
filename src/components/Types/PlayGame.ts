@@ -9,7 +9,8 @@ interface PlayGame {
     timerSeconds: 0,
     startTimer(): void,
     timerInterval: number,
-    gameOver: boolean
+    gameOver: boolean,
+    score: number
 }
 
 export default PlayGame
