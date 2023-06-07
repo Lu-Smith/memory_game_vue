@@ -8,7 +8,8 @@ interface PlayGame {
     timerMinutes: 0,
     timerSeconds: 0,
     startTimer(): void,
-    timerInterval: number;
+    timerInterval: number,
+    gameOver: boolean
 }
 
 export default PlayGame

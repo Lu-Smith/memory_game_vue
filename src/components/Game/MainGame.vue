@@ -12,7 +12,8 @@
     </div>
   </div>
   <button v-if="!createName && !play" @click='playGame'>Play</button>
-  <button v-if="play" @click='playGame'>Restart</button>
+  <button v-if="play && !gameOver" @click='playGame'>Restart</button>
+  <button v-if="gameOver" @click='playGame'>PlayAgian</button>
   <GameGrid :cells="cells" @uncoverCard="uncoverCard"/>
   <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds"/>
 </template>
@@ -40,7 +41,8 @@ export default {
       player: '',
       timerMinutes: 0,
       timerSeconds: 0,
-      timerInterval: null
+      timerInterval: null,
+      gameOver: false
     }
   },
   methods: {
@@ -68,7 +70,6 @@ export default {
             if (!this.play) {
               return; // Game is not in play state, exit the method
             }
-            console.log(cell.id)
             this.cells = this.cells.map((c: Cell) => {
               if (c.id === cell.id) {
                 return { ...c, clicked: true };
@@ -76,6 +77,10 @@ export default {
                 return c;
               }
             })
+            const allClicked = this.cells.every((c: Cell) => c.clicked);
+            if (allClicked) {
+              this.gameOver = true
+            }
     }
   }
 }
