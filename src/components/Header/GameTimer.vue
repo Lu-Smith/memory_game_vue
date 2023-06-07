@@ -1,13 +1,22 @@
 <template>
     <div class="timer">
-        <h3>I am a timer</h3>
+        <h3>{{ timerMinutes }} : {{ timerSeconds }}</h3>
     </div>
 </template>
 
 <script lang="ts">
-export default {
-
-}
+import { defineComponent } from 'vue';
+import { PropType } from 'vue';
+export default defineComponent({
+    props: {  
+        timerMinutes: {  
+            type: Number as PropType<number | string>,
+            required: true}, 
+        timerSeconds: {
+            type: Number as PropType<number | string>,
+            required: true,},
+    }
+})
 </script>
 
 <style>

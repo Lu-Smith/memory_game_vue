@@ -31,8 +31,8 @@ export default {
       cells: cards1.map((card: Cell) => ({ ...card, clicked: false })),
       play: false,
       choosePlayer: 'Choose the player',
-      scorePlayer1: 0,
-      scorePlayer2: 0
+      scorePlayer1: '00',
+      scorePlayer2: '00'
     }
   },
   methods: {

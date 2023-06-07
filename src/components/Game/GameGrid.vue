@@ -11,7 +11,6 @@
 import { defineComponent } from 'vue';
 import { PropType } from 'vue';
 import Cell from '../Types/Cell'
-import PlayGame from '../Types/PlayGame'
 
 export default defineComponent({
     props: {

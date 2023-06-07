@@ -1,5 +1,5 @@
 <template>
-  <GameTimer />
+  <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds"/>
   <MainHeader />
   <MainTitle />
   <MainGame />
@@ -22,7 +22,13 @@ export default defineComponent({
     MainHeader,
     MainTitle,
     MainGame
-}
+  },
+  data() {
+    return {
+      timerMinutes: '00',
+      timerSeconds: '00',
+    }
+  }
 });
 </script>
 
