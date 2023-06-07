@@ -56,6 +56,7 @@ export default {
             this.timerSeconds = 0;
             clearInterval(this.timerInterval);
             this.startTimer();
+            this.gameOver = false;
     },
     startTimer(this: PlayGame) {
       this.timerInterval = setInterval(() => {

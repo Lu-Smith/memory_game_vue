@@ -1,24 +1,16 @@
 <template>
   <transition-group name="menu" tag="ul">
-    <li>
-        Level 1
-    </li>
-    <li>
-        Level 2
-    </li>
-    <li>
-        Level 3
-    </li>
-    <li class="contactLink">
-        Contact
-    </li>
+    <li v-for="(item, index) in menuItems" :key="index">{{ item }}</li>
   </transition-group>
 </template>
 
 <script lang="ts">
 export default {
-    
-
+  data() {
+    return {
+      menuItems: ['Level 1', 'Level 2', 'Level 3', 'Contact']
+    }
+  }
 }
 </script>
 
@@ -60,9 +52,4 @@ li:hover {
   transform: translateY(-10px);
   opacity: 0;
 }
-
-.contactLink {
-    background: #9fd3c7;
-}
-
 </style>
