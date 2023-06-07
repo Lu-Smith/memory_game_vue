@@ -1,28 +1,17 @@
 <template>
   <div class="players">
-    <div v-if="play" class="score">{{ scorePlayer1 }}</div>
-    <div class="player" v-if="play" > 
-      <div class="player1 name" :class="{ active: active1 }">
-        {{ player1 }}
+    <div v-if="play" class="score">{{ score }}</div>
+    <div class="player" > 
+      <div class="player-name" v-if="!createName">
+        Hello {{ player }}
       </div>
-      <div v-if="createName1" class="player-name-submit">
-        <input type="text" v-model="player1" placeholder="player name..."/>
-        <button class="name-button"  @click="togglePlayer(1)">Confirm</button>
-      </div>
-    </div>
-    <div class="player" v-if="play">
-      <div class="player2 name" :class="{ active: active2 }" >
-        {{ player2 }}
-      </div>
-      <div v-if="createName2" class="player-name-submit">
-        <input type="text" v-model="player2" placeholder="player name..."/>
-        <button  class="name-button"  @click="togglePlayer(2)">Confirm</button>
+      <div v-if="createName" class="player-name-submit">
+        <input type="text" v-model="player" placeholder="player name..."/>
+        <button class="name-button"  @click="createPlayer">Confirm</button>
       </div>
     </div>
-    <div v-if="play" class="score">{{ scorePlayer2 }}</div>
   </div>
-  <p v-if="play && ((!active1) && (!active2))" class="instruction">{{ choosePlayer }}</p>
-  <button @click='playGame'>Play</button>
+  <button v-if="!createName" @click='playGame'>Play</button>
   <GameGrid :cells="cells" @uncoverCard="uncoverCard"/>
 </template>
 
@@ -41,37 +30,25 @@ export default {
   },
   data()  {
     return {
-      active1: false,
-      active2: false,
-      createName1: true,
-      createName2: true,
+      createName: true,
       cells: cards1.map((card: Cell) => ({ ...card, clicked: false })),
       play: false,
-      choosePlayer: 'Enter a player name',
-      scorePlayer1: 0,
-      scorePlayer2: 0,
-      player1: '',
-      player2: ''
+      score: 0,
+      player: ''
     }
   },
   methods: {
-    togglePlayer(this: MainGameComponent, playerNumber:number): void  {
-      if(playerNumber === 1) {
-        this.active1 = true;
-        this.active2 = false;
-        this.createName1 = false;
-      }
-      if(playerNumber === 2) {
-        this.active2 = true;
-        this.active1 = false;
-        this.createName2 = false;
-      }
+    createPlayer(this: MainGameComponent): void  {
+            this.createName = false;
     },
     playGame(this: PlayGame){
             this.play = true
             this.cells = cards1.map((card: Cell) => ({ ...card, clicked: false }))
     },
     uncoverCard(this: PlayGame, cell: Cell) {
+            if (!this.play) {
+              return; // Game is not in play state, exit the method
+            }
             console.log(cell.id)
             this.cells = this.cells.map((c: Cell) => {
               if (c.id === cell.id) {
@@ -80,7 +57,7 @@ export default {
                 return c;
               }
             })
-      }
+    }
   }
 }
 </script>
@@ -141,11 +118,7 @@ export default {
   margin-bottom: 10px;
 }
 
-.player1 {
+.player-name {
   color: red;
-}
-
-.player2 {
-  color: #57746d;
 }
 </style>
