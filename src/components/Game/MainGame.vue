@@ -74,10 +74,12 @@ export default {
             }
             this.cells = this.cells.map((c: Cell) => {
               if (c.id === cell.id && !cell.clicked) {
-
-                this.score++
+                const checkClickedCards = this.cells.filter((card: Cell) => card.alt === c.alt && card.clicked);
+                if (checkClickedCards.length === 1) {
+                  this.score++
+                  console.log(checkClickedCards.length)
+                }
                 return { ...c, clicked: true };
-               
               } else {
                 return c;
               }
@@ -85,7 +87,8 @@ export default {
             const allClicked = this.cells.every((c: Cell) => c.clicked);
             if (allClicked) {
               this.gameOver = true
-            }
+            } 
+           
     }
   }
 }
