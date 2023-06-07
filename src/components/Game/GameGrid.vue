@@ -8,11 +8,12 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import { PropType } from 'vue';
 import Cell from '../Types/Cell'
 import PlayGame from '../Types/PlayGame'
 
-export default {
+export default defineComponent({
     props: {
       cells: {
         type: Array as PropType<Cell[]>,
@@ -31,7 +32,7 @@ export default {
       this.$emit('uncoverCard', cell);
     },
   },
-}
+})
 </script>
 
 <style>
