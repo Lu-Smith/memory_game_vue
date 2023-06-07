@@ -1,8 +1,8 @@
 <template>
   <button @click='playGame'>Play</button>
   <div class="grid">
-    <div v-for="cell in cells" :key="cell.id">
-        <img src="../../assets/images/MemoCard2.1.svg" alt="top of the memo card">
+    <div v-for="cell in cells" :key="cell.id" @click="uncoverCard(cell.id)">
+        <img :src="imgSrc" :alt="imgAlt">
     </div>
   </div>
   <p>results {{ hello }}</p>
@@ -19,20 +19,27 @@ interface Cell {
 
 interface PlayGame {
   hello: string,
-  cells: Cell[]
+  cells: Cell[],
+  imgSrc: string,
+  imgAlt: string
 }
 
 export default {
     data() {
         return {
-            cells: [] as Cell[],
-            hello: ''
+            cells: [...cards1] as Cell[],
+            hello: '',
+            imgSrc: require("../../assets/images/MemoCard2.1.svg"),
+            imgAlt: "top of the memo card"
         }
     },
     methods: {
         playGame(this: PlayGame){
             this.hello = ' hello'
-            this.cells = [...cards1]
+            this.imgSrc = "../../assets/images/MemoCard2.1.svg",
+            this.imgAlt = "top of the memo card"
+        },
+        uncoverCard(id: number) {
             // <img :src="require(`../../assets/images/${cell.src}`)" :alt="cell.alt" class="uncoverd-card">
         }
     }
