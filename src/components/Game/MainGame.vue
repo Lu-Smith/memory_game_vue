@@ -117,6 +117,7 @@ export default {
           const allClicked = this.cells.every((c: Cell) => c.clicked);
           if (allClicked) {
             this.gameOver = true
+            clearInterval(this.timerInterval);
           }   
     }
   }
