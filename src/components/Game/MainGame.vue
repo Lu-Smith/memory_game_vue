@@ -51,13 +51,22 @@ export default {
     },
     playGame(this: PlayGame){
             this.play = true
-            this.cells = cards1.map((card: Cell) => ({ ...card, clicked: false }))
+            const shuffledCards = shuffleArray(cards1);
+            this.cells = shuffledCards.map((card: Cell) => ({ ...card, clicked: false }));
             this.timerMinutes = 0;
             this.timerSeconds = 0;
             clearInterval(this.timerInterval);
             this.startTimer();
             this.gameOver = false;
             this.score = 0;
+            function shuffleArray(array: any[]): any[] {
+              const shuffledArray = [...array];
+              for (let i = shuffledArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+              }
+              return shuffledArray;
+            }
     },
     startTimer(this: PlayGame) {
       this.timerInterval = setInterval(() => {
@@ -77,7 +86,6 @@ export default {
             const coverClickedCards = this.cells.filter((card: Cell) => card.alt !== cell.alt && card.clicked && card.alt !== "checked");
 
             if (!cell.clicked) {
-              console.log(coverClickedCards.length)
               this.cells = this.cells.map((c: Cell) => {
               if (c.id === cell.id  && (clickedCards.length === 0 || clickedCards.length === 1))  {
                 return { ...c, clicked: true };
@@ -106,10 +114,10 @@ export default {
                 })
               } 
           }
-            const allClicked = this.cells.every((c: Cell) => c.clicked);
-            if (allClicked) {
-              this.gameOver = true
-            }   
+          const allClicked = this.cells.every((c: Cell) => c.clicked);
+          if (allClicked) {
+            this.gameOver = true
+          }   
     }
   }
 }
