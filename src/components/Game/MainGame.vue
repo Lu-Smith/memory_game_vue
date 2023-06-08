@@ -1,10 +1,10 @@
 <template>
   <div class="players">
-    <div v-if="play" class="score">{{ score }}</div>
+    <h2 v-if="play">{{ score }}</h2>
     <div class="player" > 
-      <div class="player-name" v-if="!createName">
+      <h3 class="player-name" v-if="!createName">
         {{ player }}
-      </div>
+      </h3>
       <div v-if="createName" class="player-name-submit">
         <input type="text" v-model="player" placeholder="player name..."/>
         <button class="name-button"  @click="createPlayer">Confirm</button>
@@ -164,20 +164,6 @@ export default {
 
 .active {
   animation: activeEffect 1s ease-in-out infinite alternate;
-}
-
-.score {
-  font-size: 30px;
-  font-weight: bold;
-  border: 4px solid #9fd3c7;
-  padding: 20px;
-}
-
-.name {
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
 }
 
 .player-name {
