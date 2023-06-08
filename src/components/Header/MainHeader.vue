@@ -16,40 +16,61 @@ export default {
 
 <style>
 ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 80px 0 0 0;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  font-size: 20px;
 }
 
 li {
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: all 200ms ease;
-    font-weight: 800;
-    transform: translateX(0);
-    width: 100px;
-    cursor: pointer;
+  position: relative;
+  color: rgb(250, 100, 100);
+  transition: color 0.3s;
+  z-index: 1;
 }
 
 li:hover {
-  background: #57746d;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
-  transform: translateY(10px);
-  color: white;
-  font-weight: 600;
+  color: #9fd3c7;
 }
 
-.menu-enter-active,
-.menu-leave-active {
-  transition: all 200ms ease;
-}
-
-.menu-enter,
-.menu-leave-to {
-  transform: translateY(-10px);
+li::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 30%;
+  width: 30px;
+  height: 5px;
+  background-color: #FF4081;
+  transform: translateX(100%);
+  transition: transform 0.5s;
   opacity: 0;
+  z-index: -1;
+}
+
+li:hover::before {
+  opacity: 1;
+  animation: moveBackground 1s infinite linear;
+}
+
+@keyframes moveBackground {
+  0% {
+    transform: translateX(-50%);
+  }
+  25% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  75% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 </style>
