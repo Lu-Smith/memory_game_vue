@@ -102,13 +102,13 @@ export default {
                         c.alt = "checked";
                       } 
                     });
-                  }, 1000);
+                  }, 600);
               } else if (coverClickedCards.length === 1) {
                 this.cells.forEach((card: Cell) => {
                   if (card.alt !== "checked") {
                     setTimeout(() => {
                       card.clicked = false;
-                    }, 1000);
+                    }, 900);
                   }
                    
                 })
