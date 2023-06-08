@@ -72,36 +72,40 @@ export default {
             if (!this.play) {
               return; // Game is not in play state, exit the method
             }
+            const clickedCards = this.cells.filter((card: Cell) => card.clicked && card.alt !== "checked");
+            const checkClickedCards = this.cells.filter((card: Cell) => card.alt === cell.alt && card.clicked);
 
-            this.cells = this.cells.map((c: Cell) => {
-              if (c.id === cell.id && !cell.clicked) {
+            const coverClickedCards = this.cells.filter((card: Cell) => card.alt !== cell.alt && card.clicked && card.alt !== "checked");
+            if (!cell.clicked) {
+              console.log(coverClickedCards.length)
+              this.cells = this.cells.map((c: Cell) => {
+              if (c.id === cell.id  && (clickedCards.length === 0 || clickedCards.length === 1))  {
                 return { ...c, clicked: true };
               } else {
-                return c;
+                return c
               }
-            });
-              console.log(cell.clicked)
-              const coverClickedCards = this.cells.filter((card: Cell) => card.alt !== cell.alt && card.clicked && card.alt !== "checked");
-            const checkClickedCards = this.cells.filter((card: Cell) => card.alt === cell.alt && card.clicked);
-                if (checkClickedCards.length === 2) {
-                  this.score++
-                  setTimeout(() => {
-                    this.cells.forEach((c: Cell) => {
-                    if (c.alt === cell.alt) {
-                      c.src = "MemoCard2.2.svg";
-                      c.alt = "checked";
-                    }
-                  });
-                }, 1000);
-                } 
-                if (coverClickedCards.length === 2) {
-                  coverClickedCards.forEach((card: Cell) => {
+              });
+              if (checkClickedCards.length === 1) {
+                    this.score++
                     setTimeout(() => {
-                      card.clicked = !card.clicked;
-                    }, 100);
-                  })
-                }
-         
+                      this.cells.forEach((c: Cell) => {
+                      if (c.alt === cell.alt) {
+                        c.src = "MemoCard2.2.svg";
+                        c.alt = "checked";
+                      } 
+                    });
+                  }, 1000);
+              } else if (coverClickedCards.length === 1) {
+                this.cells.forEach((card: Cell) => {
+                  if (card.alt !== "checked") {
+                    setTimeout(() => {
+                      card.clicked = false;
+                    }, 1000);
+                  }
+                   
+                })
+              } 
+          }
             const allClicked = this.cells.every((c: Cell) => c.clicked);
             if (allClicked) {
               this.gameOver = true
