@@ -74,8 +74,8 @@ export default {
             }
             const clickedCards = this.cells.filter((card: Cell) => card.clicked && card.alt !== "checked");
             const checkClickedCards = this.cells.filter((card: Cell) => card.alt === cell.alt && card.clicked);
-
             const coverClickedCards = this.cells.filter((card: Cell) => card.alt !== cell.alt && card.clicked && card.alt !== "checked");
+
             if (!cell.clicked) {
               console.log(coverClickedCards.length)
               this.cells = this.cells.map((c: Cell) => {
@@ -89,7 +89,7 @@ export default {
                     this.score++
                     setTimeout(() => {
                       this.cells.forEach((c: Cell) => {
-                      if (c.alt === cell.alt) {
+                      if (c.alt === cell.alt && clickedCards.length === 1) {
                         c.src = "MemoCard2.2.svg";
                         c.alt = "checked";
                       } 
