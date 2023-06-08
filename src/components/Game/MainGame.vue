@@ -13,7 +13,7 @@
   </div>
   <button v-if="!createName && !play" @click='playGame'>Play</button>
   <button v-if="play && !gameOver" @click='playGame'>Restart</button>
-  <button v-if="gameOver" @click='playGame'>PlayAgian</button>
+  <button v-if="gameOver" @click='playGame'>Play Again</button>
   <GameGrid :cells="cells" @uncoverCard="uncoverCard"/>
   <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds"/>
 </template>
@@ -72,30 +72,40 @@ export default {
             if (!this.play) {
               return; // Game is not in play state, exit the method
             }
+
             this.cells = this.cells.map((c: Cell) => {
               if (c.id === cell.id && !cell.clicked) {
-                const checkClickedCards = this.cells.filter((card: Cell) => card.alt === c.alt && card.clicked);
-                if (checkClickedCards.length === 1) {
-                  this.score++
-                }
-                const coverClickedCards = this.cells.filter((card: Cell) => card.alt !== c.alt && card.clicked);
-                if (coverClickedCards.length === 2) {
-                  coverClickedCards.forEach((card: Cell) => {
-                    setTimeout(() => {
-                      card.clicked = !card.clicked;
-                    }, 200);
-                  })
-                }
                 return { ...c, clicked: true };
               } else {
                 return c;
               }
-            })
+            });
+              console.log(cell.clicked)
+              const coverClickedCards = this.cells.filter((card: Cell) => card.alt !== cell.alt && card.clicked && card.alt !== "checked");
+            const checkClickedCards = this.cells.filter((card: Cell) => card.alt === cell.alt && card.clicked);
+                if (checkClickedCards.length === 2) {
+                  this.score++
+                  setTimeout(() => {
+                    this.cells.forEach((c: Cell) => {
+                    if (c.alt === cell.alt) {
+                      c.src = "MemoCard2.2.svg";
+                      c.alt = "checked";
+                    }
+                  });
+                }, 1000);
+                } 
+                if (coverClickedCards.length === 2) {
+                  coverClickedCards.forEach((card: Cell) => {
+                    setTimeout(() => {
+                      card.clicked = !card.clicked;
+                    }, 100);
+                  })
+                }
+         
             const allClicked = this.cells.every((c: Cell) => c.clicked);
             if (allClicked) {
               this.gameOver = true
-            } 
-           
+            }   
     }
   }
 }
