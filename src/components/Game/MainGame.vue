@@ -19,7 +19,7 @@
   <div class="titleTimer">
     <MainTitle />
     <MainHeader />
-    <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds"/>
+    <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds" :gameOver="gameOver"/>
   </div>
 </template>
 

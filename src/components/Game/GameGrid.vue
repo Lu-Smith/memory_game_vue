@@ -46,7 +46,7 @@ export default defineComponent({
     margin: 50px auto 0;
     width: 470px;
     height: 482px;
-    background: #3e4644;
+    background: #222927;
     padding: 20px;
 }
 

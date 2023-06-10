@@ -1,5 +1,5 @@
 <template>
-    <div class="time">
+    <div class="time" :class="!gameOver ? '' : 'animated-heading'">
         <h3>{{ timerMinutes }} min : {{ timerSeconds }} sec</h3>
     </div>
 </template>
@@ -15,6 +15,10 @@ export default defineComponent({
         timerSeconds: {
             type: Number as PropType<number | string>,
             required: true,},
+        gameOver: {
+            type: Boolean as PropType<boolean>,
+            required: true,
+        }
     }
 })
 </script>
