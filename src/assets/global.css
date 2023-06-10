@@ -6,6 +6,7 @@
 
 body {
     background-color: black;
+    color: #57746d;
 }
 
 h1 {
@@ -15,8 +16,9 @@ h1 {
 h2 {
     font-size: 30px;
     font-weight: bold;
-    border: 4px solid #9fd3c7;
+    border: 4px solid rgb(250, 100, 100);;
     padding: 10px 20px;
+    color: #57746d;
   }
 
 input {

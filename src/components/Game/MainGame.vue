@@ -161,7 +161,6 @@ export default {
 }
 
 .player-name {
-  color: #e43030;
   margin: 80px 0 20px 0;
 }
 
@@ -180,6 +179,5 @@ export default {
   top: 0;
   right: 0;
   left: 0;
-  color: #57746d;
 }
 </style>

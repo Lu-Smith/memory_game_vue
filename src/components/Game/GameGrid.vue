@@ -44,8 +44,10 @@ export default defineComponent({
     justify-items: center;
     align-items: center;
     margin: 50px auto 0;
-    width: 430px;
-    height: 430px;
+    width: 470px;
+    height: 482px;
+    background: #3e4644;
+    padding: 20px;
 }
 
 .instruction {
