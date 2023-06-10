@@ -19,7 +19,6 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 80px 0 0 0;
   gap: 30px;
   list-style: none;
   padding: 0;
@@ -34,7 +33,7 @@ li {
 }
 
 li:hover {
-  color: #9fd3c7;
+  color: #57746d;
 }
 
 li::before {

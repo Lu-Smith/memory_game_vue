@@ -1,5 +1,4 @@
 <template>
-  <MainHeader />
   <MainGame />
   <MainFooter />
 </template>
@@ -14,7 +13,6 @@ export default defineComponent({
   name: 'App',
   components: {
     MainFooter,
-    MainHeader,
     MainGame
   }
 });

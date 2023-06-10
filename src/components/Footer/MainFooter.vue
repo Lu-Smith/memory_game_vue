@@ -29,14 +29,14 @@
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: #9fd3c7;
+    background-color: #57746d;
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
   }
   
   footer a:hover {
-    color: #9fd3c7;
+    color: #57746d;
   }
   
   footer a:hover::before {

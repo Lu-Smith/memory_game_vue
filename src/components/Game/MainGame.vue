@@ -17,6 +17,7 @@
   <GameGrid :cells="cells" @uncoverCard="uncoverCard"/>
   <div class="titleTimer">
     <MainTitle />
+    <MainHeader />
     <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds"/>
   </div>
 </template>
@@ -31,10 +32,11 @@ import PlayGame from '../Types/PlayGame'
 import MainGameComponent from '../Types/MainGameComponent'
 import GameTimer from '../Header/GameTimer.vue';
 import MainTitle from '../Header/MainTitle.vue';
+import MainHeader from '../Header/MainHeader.vue';
 
 export default {
   components: {
-    GameGrid, GameTimer, MainTitle
+    GameGrid, GameTimer, MainTitle, MainHeader
   },
   data()  {
     return {
@@ -133,6 +135,7 @@ export default {
   background: #57746d;
   padding: 30px 50px;
   border-radius: 50%;
+  margin-top: 80px;
 }
 
 .name-button {
@@ -162,10 +165,9 @@ export default {
 }
 
 .titleTimer {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: baseline;
-  justify-content: center;
-  gap: 40%;
   position: fixed;
   top: 0;
   right: 0;
