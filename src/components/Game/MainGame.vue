@@ -1,19 +1,20 @@
 <template>
   <div class="players">
-    <h2 v-if="play">{{ score }}</h2>
-    <div class="player" > 
       <h3 class="player-name" v-if="!createName">
-        {{ player }}
+        <div v-if="gameOver"> Congratulations {{ player }} <span>, you did it! </span></div>
+        <div v-else>{{ player }}</div>
       </h3>
       <div v-if="createName" class="player-name-submit">
         <input type="text" v-model="player" placeholder="player name..."/>
         <button class="name-button"  @click="createPlayer">Confirm</button>
       </div>
-    </div>
   </div>
-  <button v-if="!createName && !play" @click='playGame'>Play</button>
-  <button v-if="play && !gameOver" @click='playGame'>Restart</button>
-  <button v-if="gameOver" @click='playGame'>Play Again</button>
+  <div class="score-button">
+    <h2 v-if="play">{{ score }}</h2>
+    <button v-if="!createName && !play" @click='playGame'>Play</button>
+    <button v-if="play && !gameOver" @click='playGame'>Restart</button>
+    <button v-if="gameOver" @click='playGame'>Play Again</button>
+  </div>
   <GameGrid :cells="cells" @uncoverCard="uncoverCard"/>
   <div class="titleTimer">
     <MainTitle />
@@ -161,7 +162,14 @@ export default {
 
 .player-name {
   color: #e43030;
-  margin-bottom: 20px;
+  margin: 80px 0 20px 0;
+}
+
+.score-button {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
 }
 
 .titleTimer {
