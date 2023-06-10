@@ -127,13 +127,12 @@ export default {
 <style>
 .player-name-submit {
   background: #57746d;
-  padding: 10px;
+  padding: 30px 50px;
+  border-radius: 50%;
 }
 
 .name-button {
   font-size: 16px;
-  border: none;
-  border-radius: none;
 } 
 
 .players {
@@ -153,20 +152,8 @@ export default {
   color: rgb(250, 100, 100);
 }
 
-@keyframes activeEffect {
-    0% {
-      text-shadow: 0 0 3px #fff, 0 0 7px #f8f8f7, 0 0 15px #93e5eb, 0 0 20px #9fd3c7, 0 0 25px #4eb5d4, 0 0 30px #4eb5d4, 0 0 36px #4eb5d4, 0 0 45px #317a91;
-    }
-    100% {
-      text-shadow: 0 0 3px #ffffff, 0 0 7px #f6f7f3, 0 0 15px #93ebd1, 0 0 20px #7394f0, 0 0 25px #4d7cff, 0 0 30px #4d7cff, 0 0 36px #4d7cff, 0 0 45px #395cbb;
-    }
-  }
-
-.active {
-  animation: activeEffect 1s ease-in-out infinite alternate;
-}
-
 .player-name {
-  color: red;
+  color: #e43030;
+  margin-bottom: 20px;
 }
 </style>

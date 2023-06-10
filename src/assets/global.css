@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: black;
+}
+
 h1 {
     margin: 50px 0 30px 0;
 }
@@ -16,11 +20,12 @@ h2 {
   }
 
 input {
-    padding: 5px 10px;
+    padding: 10px 0 10px 40px;
     font-size: 16px;
     font-style: italic;
     width: 160px;
-    border-radius: 10px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
 }
 
 img {
@@ -30,11 +35,12 @@ img {
 
 button {
     padding: 10px 20px;
-    border-radius: 50%;
-    border: 2px solid red;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border: 2px solid #e43030;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
     background: black;
-    color: red;
+    color: #e43030;
     font-size: 30px;
     cursor: pointer;
     transition: all 200ms ease-in-out;

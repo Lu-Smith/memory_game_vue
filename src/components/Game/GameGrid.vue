@@ -49,7 +49,7 @@ export default defineComponent({
 }
 
 .instruction {
-  color: red;
+  color: #e43030;
   font-style: italic;
 }
 

@@ -44,7 +44,7 @@ li::before {
   right: 30%;
   width: 30px;
   height: 5px;
-  background-color: #FF4081;
+  background-color: #e43030;
   transform: translateX(100%);
   transition: transform 0.5s;
   opacity: 0;
