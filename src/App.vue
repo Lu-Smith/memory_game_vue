@@ -1,6 +1,5 @@
 <template>
   <MainHeader />
-  <MainTitle />
   <MainGame />
   <MainFooter />
 </template>
@@ -9,7 +8,6 @@
 import { defineComponent } from 'vue';
 import MainFooter from './components/Footer/MainFooter.vue';
 import MainHeader from './components/Header/MainHeader.vue';
-import MainTitle from './components/Header/MainTitle.vue';
 import MainGame from './components/Game/MainGame.vue';
 
 export default defineComponent({
@@ -17,7 +15,6 @@ export default defineComponent({
   components: {
     MainFooter,
     MainHeader,
-    MainTitle,
     MainGame
   }
 });

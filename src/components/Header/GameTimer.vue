@@ -1,5 +1,5 @@
 <template>
-    <div class="timer">
+    <div class="time">
         <h3>{{ timerMinutes }} min : {{ timerSeconds }} sec</h3>
     </div>
 </template>
@@ -20,13 +20,5 @@ export default defineComponent({
 </script>
 
 <style>
-.timer {
-    background: black;
-    color: #9fd3c7;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100dvw;
-    padding: 20px 0;
-}
+
 </style>

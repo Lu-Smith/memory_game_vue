@@ -15,7 +15,10 @@
   <button v-if="play && !gameOver" @click='playGame'>Restart</button>
   <button v-if="gameOver" @click='playGame'>Play Again</button>
   <GameGrid :cells="cells" @uncoverCard="uncoverCard"/>
-  <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds"/>
+  <div class="titleTimer">
+    <MainTitle />
+    <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds"/>
+  </div>
 </template>
 
 <script lang="ts">
@@ -26,11 +29,12 @@ import cards1 from '../../assets/cards.js'
 import Cell from '../Types/Cell'
 import PlayGame from '../Types/PlayGame'
 import MainGameComponent from '../Types/MainGameComponent'
-import GameTimer from '..//Header/GameTimer.vue';
+import GameTimer from '../Header/GameTimer.vue';
+import MainTitle from '../Header/MainTitle.vue';
 
 export default {
   components: {
-    GameGrid, GameTimer
+    GameGrid, GameTimer, MainTitle
   },
   data()  {
     return {
@@ -155,5 +159,17 @@ export default {
 .player-name {
   color: #e43030;
   margin-bottom: 20px;
+}
+
+.titleTimer {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 40%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  color: #57746d;
 }
 </style>
