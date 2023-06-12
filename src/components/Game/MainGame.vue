@@ -15,7 +15,9 @@
     <button v-if="play && !gameOver" @click='playGame'>Restart</button>
     <button v-if="gameOver" @click='playGame'>Play Again</button>
   </div>
-  <component :is="levelComponent" :cells="cells" @uncoverCard="uncoverCard" />
+  <GameGrid1 v-if="level === 'Level 1'" :cells="cells" @uncoverCard="uncoverCard"/>
+  <GameGrid2 v-if="level === 'Level 2'" :cells="cells" @uncoverCard="uncoverCard"/>
+  <GameGrid3 v-if="level === 'Level 3'" :cells="cells" @uncoverCard="uncoverCard"/>
   <div class="titleTimer">
     <MainTitle />
     <MainHeader @handleLevels="handleLevels" :level="level"/>
@@ -50,6 +52,7 @@ export default {
   data()  {
     return {
       createName: true,
+      cells: cards1.map((card: Cell) => ({ ...card, clicked: false })),
       play: false,
       score: 0,
       player: '',
@@ -57,32 +60,8 @@ export default {
       timerSeconds: 0,
       timerInterval: null,
       gameOver: false,
-      level: 'Level 1',
+      level: 'Level 1'
     }
-  },
-  computed: {
-    levelComponent() {
-      if (this.level === 'Level 1') {
-        return 'GameGrid1';
-      } else if (this.level === 'Level 2') {
-        return 'GameGrid2';
-      } else if (this.level === 'Level 3') {
-        return 'GameGrid3';
-      } else {
-        return '';
-      }
-    },
-    cells() {
-      if (this.level === 'Level 1') {
-        return cards1.map((card: Cell) => ({ ...card, clicked: false }));
-      } else if (this.level === 'Level 2') {
-        return cards2.map((card: Cell) => ({ ...card, clicked: false }));
-      } else if (this.level === 'Level 3') {
-        return cards3.map((card: Cell) => ({ ...card, clicked: false }));
-      } else {
-        return [];
-      }
-    },
   },
   methods: {
     createPlayer(this: MainGameComponent): void  {

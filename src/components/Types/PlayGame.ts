@@ -10,7 +10,8 @@ interface PlayGame {
     startTimer(): void,
     timerInterval: number,
     gameOver: boolean,
-    score: number
+    score: number,
+    level: string
 }
 
 export default PlayGame
