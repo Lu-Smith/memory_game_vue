@@ -15,7 +15,9 @@
     <button v-if="play && !gameOver" @click='playGame'>Restart</button>
     <button v-if="gameOver" @click='playGame'>Play Again</button>
   </div>
-  <GameGrid :cells="cells" @uncoverCard="uncoverCard"/>
+  <GameGrid1 v-if="level === 'Level 1' ? 'active-level' : ''" :cells="cells" @uncoverCard="uncoverCard"/>
+  <GameGrid2 v-if="level === 'Level 2' ? 'active-level' : ''" :cells="cells" @uncoverCard="uncoverCard"/>
+  <GameGrid3 v-if="level === 'Level 3' ? 'active-level' : ''" :cells="cells" @uncoverCard="uncoverCard"/>
   <div class="titleTimer">
     <MainTitle />
     <MainHeader @handleLevels="handleLevels" :level="level"/>
@@ -24,7 +26,9 @@
 </template>
 
 <script lang="ts">
-import GameGrid from './GameGrid.vue'
+import GameGrid1 from './GameGrid1.vue'
+import GameGrid2 from './GameGrid2.vue'
+import GameGrid3 from './GameGrid3.vue'
 import cards1 from '../../assets/cards.js'
 
 //types
@@ -41,7 +45,7 @@ interface LevelComponent extends MainGameComponent {
 
 export default {
   components: {
-    GameGrid, GameTimer, MainTitle, MainHeader
+    GameGrid1, GameGrid2, GameGrid3, GameTimer, MainTitle, MainHeader
   },
   data()  {
     return {
@@ -63,7 +67,6 @@ export default {
     },
     handleLevels(this: LevelComponent, item: string) {
       this.level = item
-      console.log(item)
     },
 
     playGame(this: PlayGame){
