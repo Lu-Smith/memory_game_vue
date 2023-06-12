@@ -1,14 +1,24 @@
 <template>
   <transition-group name="menu" tag="ul">
-    <li v-for="(item, index) in menuItems" :key="index">{{ item }}</li>
+    <li v-for="(item, index) in menuItems" :key="index" @click="handleLevels(item)">{{ item }}</li>
   </transition-group>
 </template>
 
 <script lang="ts">
+
+interface MainHeaderInstance {
+  $emit(event: 'handleLevels', item: string): void;
+}
+
 export default {
   data() {
     return {
       menuItems: ['Level 1', 'Level 2', 'Level 3', 'Contact']
+    }
+  },
+  methods: {
+    handleLevels(this: MainHeaderInstance, item: string) {
+      this.$emit('handleLevels', item);
     }
   }
 }

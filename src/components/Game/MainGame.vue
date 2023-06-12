@@ -18,7 +18,7 @@
   <GameGrid :cells="cells" @uncoverCard="uncoverCard"/>
   <div class="titleTimer">
     <MainTitle />
-    <MainHeader />
+    <MainHeader @handleLevels="handleLevels"/>
     <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds" :gameOver="gameOver"/>
   </div>
 </template>
@@ -49,12 +49,16 @@ export default {
       timerMinutes: 0,
       timerSeconds: 0,
       timerInterval: null,
-      gameOver: false
+      gameOver: false,
+      level: 'level1'
     }
   },
   methods: {
     createPlayer(this: MainGameComponent): void  {
             this.createName = false;
+    },
+    handleLevels(item: string) {
+          console.log(item)
     },
     playGame(this: PlayGame){
             this.play = true
