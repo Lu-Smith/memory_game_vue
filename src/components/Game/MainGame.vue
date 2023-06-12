@@ -18,7 +18,7 @@
   <GameGrid :cells="cells" @uncoverCard="uncoverCard"/>
   <div class="titleTimer">
     <MainTitle />
-    <MainHeader @handleLevels="handleLevels"/>
+    <MainHeader @handleLevels="handleLevels" :level="level"/>
     <GameTimer :timerMinutes="timerMinutes" :timerSeconds="timerSeconds" :gameOver="gameOver"/>
   </div>
 </template>
@@ -35,6 +35,10 @@ import GameTimer from '../Header/GameTimer.vue';
 import MainTitle from '../Header/MainTitle.vue';
 import MainHeader from '../Header/MainHeader.vue';
 
+interface LevelComponent extends MainGameComponent {
+  level: string;
+}
+
 export default {
   components: {
     GameGrid, GameTimer, MainTitle, MainHeader
@@ -50,16 +54,18 @@ export default {
       timerSeconds: 0,
       timerInterval: null,
       gameOver: false,
-      level: 'level1'
+      level: 'Level 1'
     }
   },
   methods: {
     createPlayer(this: MainGameComponent): void  {
             this.createName = false;
     },
-    handleLevels(item: string) {
-          console.log(item)
+    handleLevels(this: LevelComponent, item: string) {
+      this.level = item
+      console.log(item)
     },
+
     playGame(this: PlayGame){
             this.play = true
             const shuffledCards = shuffleArray(cards1);

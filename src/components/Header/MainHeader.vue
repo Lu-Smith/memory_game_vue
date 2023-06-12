@@ -1,6 +1,6 @@
 <template>
   <transition-group name="menu" tag="ul">
-    <li v-for="(item, index) in menuItems" :key="index" @click="handleLevels(item)">{{ item }}</li>
+    <li v-for="(item, index) in menuItems" :key="index" @click="handleLevels(item)" :class="item === level ? 'active-level' : ''">{{ item }}</li>
   </transition-group>
 </template>
 
@@ -11,9 +11,10 @@ interface MainHeaderInstance {
 }
 
 export default {
+  props: ['level'],
   data() {
     return {
-      menuItems: ['Level 1', 'Level 2', 'Level 3', 'Contact']
+      menuItems: ['Level 1', 'Level 2', 'Level 3']
     }
   },
   methods: {
@@ -63,6 +64,11 @@ li::before {
 li:hover::before {
   opacity: 1;
   animation: moveBackground 1s infinite linear;
+}
+
+.active-level {
+  color: #57746d;
+  border-bottom: 4px solid #e43030;
 }
 
 @keyframes moveBackground {
