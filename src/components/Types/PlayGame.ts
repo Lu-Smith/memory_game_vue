@@ -11,7 +11,7 @@ interface PlayGame {
     timerInterval: number,
     gameOver: boolean,
     score: number,
-    level: string
+    level: string,
 }
 
 export default PlayGame

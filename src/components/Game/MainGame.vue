@@ -43,6 +43,7 @@ import MainHeader from '../Header/MainHeader.vue';
 
 interface LevelComponent extends MainGameComponent {
   level: string;
+  cells: Cell[];
 }
 
 export default {
@@ -68,12 +69,18 @@ export default {
             this.createName = false;
     },
     handleLevels(this: LevelComponent, item: string) {
-      this.level = item
+      this.level = item;
+      if (this.level === 'Level 1') {
+        this.cells = cards1.map((card: Cell) => ({ ...card, clicked: false }));
+      } else if (this.level === 'Level 2') {
+        this.cells = cards2.map((card: Cell) => ({ ...card, clicked: false }));
+      } else {
+        this.cells = cards3.map((card: Cell) => ({ ...card, clicked: false }));
+      }
     },
-
     playGame(this: PlayGame){
             this.play = true
-            const shuffledCards = shuffleArray(cards1);
+            const shuffledCards = shuffleArray(this.cells);
             this.cells = shuffledCards.map((card: Cell) => ({ ...card, clicked: false }));
             this.timerMinutes = 0;
             this.timerSeconds = 0;
