@@ -5,7 +5,7 @@ const cards3 = [
     {"id": 4, "src": 'MemoCard4.svg', "alt": 'Memo Card 4'},
     {"id": 5, "src": 'MemoCard5.svg', "alt": 'Memo Card 5'},
     {"id": 6, "src": 'MemoCard6.svg', "alt": 'Memo Card 6'},
-    {"id": 39, "src": 'MemoCard2.11.svg', "alt": 'Memo Card 11'},
+    {"id": 7, "src": 'MemoCard2.11.svg', "alt": 'Memo Card 11'},
     {"id": 8, "src": 'MemoCard8.svg', "alt": 'Memo Card 8'},
     {"id": 9, "src": 'MemoCard1.svg', "alt": 'Memo Card 1'},
     {"id": 10, "src": 'MemoCard2.svg', "alt": 'Memo Card 2'},
@@ -26,7 +26,7 @@ const cards3 = [
     {"id": 25, "src": 'MemoCard2.9.svg', "alt": 'Memo Card 9'},
     {"id": 26, "src": 'MemoCard2.10.svg', "alt": 'Memo Card 10'},
     {"id": 27, "src": 'MemoCard2.11.svg', "alt": 'Memo Card 11'},
-    {"id": 28, "src": 'MemoCard2.12.svg', "alt": 'Memo Card 12'},
+    {"id": 28, "src": 'MemoCard2.9.svg', "alt": 'Memo Card 9'},
     {"id": 29, "src": 'MemoCard2.1.svg', "alt": 'Memo Card 1'},
     {"id": 30, "src": 'MemoCard2.2.svg', "alt": 'Memo Card 2'},
     {"id": 31, "src": 'MemoCard2.3.svg', "alt": 'Memo Card 3'},
@@ -35,8 +35,6 @@ const cards3 = [
     {"id": 34, "src": 'MemoCard2.6.svg', "alt": 'Memo Card 6'},
     {"id": 35, "src": 'MemoCard2.7.svg', "alt": 'Memo Card 7'},
     {"id": 36, "src": 'MemoCard2.8.svg', "alt": 'Memo Card 8'},
-    {"id": 37, "src": 'MemoCard2.9.svg', "alt": 'Memo Card 9'},
-    {"id": 40, "src": 'MemoCard2.12.svg', "alt": 'Memo Card 12'}
 ]
 
 export default cards3;
