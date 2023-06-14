@@ -30,8 +30,8 @@ import GameGrid1 from './GameGrid1.vue'
 import GameGrid2 from './GameGrid2.vue'
 import GameGrid3 from './GameGrid3.vue'
 import cards1 from '../../assets/cards.js'
-import cards2 from '../../assets/cards.js'
-import cards3 from '../../assets/cards.js'
+import cards2 from '../../assets/cards2.js'
+import cards3 from '../../assets/cards3.js'
 
 //types
 import Cell from '../Types/Cell'
@@ -72,10 +72,13 @@ export default {
       this.level = item;
       if (this.level === 'Level 1') {
         this.cells = cards1.map((card: Cell) => ({ ...card, clicked: false }));
+        console.log(this.cells.length)
       } else if (this.level === 'Level 2') {
         this.cells = cards2.map((card: Cell) => ({ ...card, clicked: false }));
+        console.log(this.cells.length)
       } else {
         this.cells = cards3.map((card: Cell) => ({ ...card, clicked: false }));
+        console.log(this.cells.length)
       }
     },
     playGame(this: PlayGame){
