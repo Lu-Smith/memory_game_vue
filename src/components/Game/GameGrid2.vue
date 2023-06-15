@@ -55,4 +55,13 @@ export default defineComponent({
   font-style: italic;
 }
 
+@media screen and (max-width: 900px) {
+    .grid {
+      gap: 8px;
+      width: 630px;
+      height: 440px;
+      padding: 185x;
+    }
+}
+
 </style>
