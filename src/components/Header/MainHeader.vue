@@ -88,4 +88,12 @@ li:hover::before {
     transform: translateX(-50%);
   }
 }
+
+@media screen and (max-width: 900px) {
+  ul {
+    gap: 25px;
+    font-size: 15px;
+}
+
+  }
 </style>
