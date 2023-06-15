@@ -64,6 +64,19 @@ export default defineComponent({
     }
 }
 
+@media screen and (max-width: 680px) {
+  img {
+    width: 70px;
+    height: 70px;
+  }
+    .grid {
+      gap: 8px;
+      width: 520px;
+      height: 340px;
+      padding: 18px;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .grid {
       grid-template-columns: repeat(4, 1fr);

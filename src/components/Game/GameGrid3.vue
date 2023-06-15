@@ -68,6 +68,19 @@ img {
     }
 }
 
+@media screen and (max-width: 900px) {
+    img {
+        width: 70px;
+        height: 70px;
+      }
+    .grid {
+      gap: 5px;
+      width: 500px;
+      height: 500px;
+      padding: 15px;
+    }
+}
+
 @media screen and (max-width: 480px) {
 
     img {

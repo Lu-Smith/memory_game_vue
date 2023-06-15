@@ -64,6 +64,15 @@ export default defineComponent({
     }
 }
 
+@media screen and (max-width: 680px) {
+    .grid {
+      gap: 8px;
+      width: 380px;
+      height: 380px;
+      padding: 15px;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .grid {
       gap: 5px;
