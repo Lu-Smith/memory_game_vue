@@ -44,10 +44,16 @@
     transform: scaleX(1);
   }
 
+  @media screen and (max-width: 900px) {
+    footer {
+      font-size: 14px;
+    }
+  }
+
   @media screen and (max-width: 480px) {
     footer {
       padding: 10px;
       font-size: 12px;
     }
-}
+  }
 </style>
