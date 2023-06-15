@@ -93,7 +93,9 @@ li:hover::before {
   ul {
     gap: 25px;
     font-size: 15px;
-}
-
   }
+  .active-level {
+    border-bottom: 3px solid #e43030;
+  }
+}
 </style>
