@@ -209,4 +209,10 @@ export default {
   right: 0;
   left: 0;
 }
+
+@media screen and (max-width: 900px) {
+    .player-name-submit {
+    padding: 25px 45px;
+  }
+}
 </style>

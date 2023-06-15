@@ -59,4 +59,13 @@ img {
   font-style: italic;
 }
 
+@media screen and (max-width: 900px) {
+    .grid {
+      gap: 5px;
+      width: 590px;
+      height: 590px;
+      padding: 15px;
+    }
+}
+
 </style>

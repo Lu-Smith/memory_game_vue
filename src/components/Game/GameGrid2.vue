@@ -59,8 +59,8 @@ export default defineComponent({
     .grid {
       gap: 8px;
       width: 630px;
-      height: 440px;
-      padding: 185x;
+      height: 482px;
+      padding: 18px;
     }
 }
 
