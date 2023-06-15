@@ -127,7 +127,14 @@ export default {
                     setTimeout(() => {
                       this.cells.forEach((c: Cell) => {
                       if (c.alt === cell.alt && clickedCards.length === 1) {
-                        c.src = "MemoCard2.2.svg";
+                        if (this.level === 'Level 1') {
+                          c.src = "MemoCard2.2.svg";
+      } else if (this.level === 'Level 2') {
+        c.src = "MemoCard8.svg";
+      } else {
+        c.src = "MemoCard2.12.svg";
+      }
+                        
                         c.alt = "checked";
                       } 
                     });
