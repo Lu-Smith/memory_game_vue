@@ -1,10 +1,22 @@
 <template>
-  <transition-group name="menu" tag="ul">
-    <li v-for="(item, index) in menuItems" :key="index" @click="handleLevels(item)" :class="item === level ? 'active-level' : ''">{{ item }}</li>
-  </transition-group>
+  <div>
+    <div v-if="mobileMenu" class="mobile-menu" @click="toggleMenu">
+      <span class="material-symbols-outlined">
+        menu
+      </span>
+    </div>
+    <transition-group name="menu" tag="ul" v-if="!mobileMenu" >
+      <li v-for="(item, index) in menuItems" :key="index" @click="handleLevels(item)" :class="item === level ? 'active-level' : ''">{{ item }}</li>
+    </transition-group>
+  </div>
+
 </template>
 
 <script lang="ts">
+
+interface MenuProps {
+  mobileMenu: boolean
+}
 
 interface MainHeaderInstance {
   $emit(event: 'handleLevels', item: string): void;
@@ -14,15 +26,20 @@ export default {
   props: ['level'],
   data() {
     return {
-      menuItems: ['Level 1', 'Level 2', 'Level 3']
+      menuItems: ['Level 1', 'Level 2', 'Level 3'],
+      mobileMenu: true 
     }
   },
   methods: {
     handleLevels(this: MainHeaderInstance, item: string) {
       this.$emit('handleLevels', item);
+    },
+    toggleMenu(this: MenuProps) {
+      this.mobileMenu = !this.mobileMenu
     }
   }
 }
+
 </script>
 
 <style>
@@ -34,6 +51,10 @@ ul {
   list-style: none;
   padding: 0;
   font-size: 20px;
+}
+
+.mobile-menu{
+  display: none;
 }
 
 li {
@@ -97,5 +118,24 @@ li:hover::before {
   .active-level {
     border-bottom: 3px solid #e43030;
   }
+}
+
+@media screen and (max-width: 600px) {
+  .mobile-menu{
+  display: flex;
+  position: relative;
+}
+  ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  padding: 20px;
+  width: 100px;
+  margin: 0 auto;
+}
+
+
 }
 </style>
