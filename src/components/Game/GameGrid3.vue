@@ -68,4 +68,19 @@ img {
     }
 }
 
+@media screen and (max-width: 480px) {
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+    .grid {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      gap: 5px;
+      width: 320px;
+      height: 320px;
+      padding: 10px;
+    }
+}
 </style>
