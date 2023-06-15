@@ -5,8 +5,8 @@
         menu
       </span>
     </div>
-    <transition-group name="menu" tag="ul" v-if="!mobileMenu" >
-      <li v-for="(item, index) in menuItems" :key="index" @click="handleLevels(item)" :class="item === level ? 'active-level' : ''">{{ item }}</li>
+    <transition-group name="menu" tag="ul" v-if="!mobileMenu" @click="toggleMenu">
+      <li v-for="(item, index) in menuItems" :key="index" @click="handleLevels(item)" :class="item === level ? 'active-level' : ''" >{{ item }}</li>
     </transition-group>
   </div>
 
@@ -123,7 +123,8 @@ li:hover::before {
 @media screen and (max-width: 600px) {
   .mobile-menu{
   display: flex;
-  position: relative;
+  justify-content: center;
+  align-items: baseline;
 }
   ul {
   display: flex;
