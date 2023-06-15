@@ -89,3 +89,36 @@ button:hover {
     }
       
 }
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+        font-weight: 700;
+        border: 2px solid rgb(250, 100, 100);
+        padding: 10px 20px;
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+    input {
+        padding: 8px 0 8px 30px;
+        font-size: 12px;
+    }
+
+    img {
+        width: 60px;
+        height: 60px;
+    }
+
+    button {
+        padding: 8px 10px;
+        font-size: 10px;
+    }
+      
+}

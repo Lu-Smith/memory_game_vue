@@ -64,4 +64,15 @@ export default defineComponent({
     }
 }
 
+@media screen and (max-width: 480px) {
+    .grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      gap: 5px;
+      width: 320px;
+      height: 460px;
+      padding: 10px;
+    }
+}
+
 </style>
