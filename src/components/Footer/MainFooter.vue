@@ -12,7 +12,7 @@
       text-align: center;
       padding: 20px;
       color: rgb(250, 250, 250);
-      background: black;
+      background: rgba(0, 0, 0, 0.5);
   }
   
   footer a {

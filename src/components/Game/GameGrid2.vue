@@ -46,8 +46,9 @@ export default defineComponent({
     margin: 50px auto 0;
     width: 690px;
     height: 482px;
-    background: #222927;
     padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
 }
 
 .instruction {

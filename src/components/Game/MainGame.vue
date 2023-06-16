@@ -162,10 +162,10 @@ export default {
 
 <style>
 .player-name-submit {
-  background: #57746d;
+  background: rgba(0, 0, 0, 0.5);
   padding: 30px 50px;
   border-radius: 50%;
-  margin-top: 80px;
+  margin-top: 100px;
 }
 
 .name-button {
@@ -208,6 +208,7 @@ export default {
   top: 0;
   right: 0;
   left: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (max-width: 900px) {

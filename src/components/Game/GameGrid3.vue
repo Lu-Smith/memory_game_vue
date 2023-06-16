@@ -42,10 +42,11 @@ export default defineComponent({
     gap: 10px;
     justify-items: center;
     align-items: center;
-    margin: 50px auto 0;
+    margin: 20px auto 0;
     width: 600px;
     height: 600px;
-    background: #222927;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
     padding: 20px;
 }
 
