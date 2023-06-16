@@ -179,18 +179,9 @@ export default {
   justify-content: center;
 }
 
-.players h3 {
-  cursor: pointer;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
-
-.players h3:hover {
-  color: rgb(250, 100, 100);
-}
-
 .player-name {
   margin: 80px 0 20px 0;
+  color: rgb(250, 100, 100);
 }
 
 .score-button {
